@@ -75,20 +75,61 @@ int	count_letter(char *str)
 	return (count);
 }
 
+char	*ft_strcat(char *str)
+{
+	char	*arr;
+	int	i;
+	
+	arr = malloc(sizeof(char) * (count_letter(str) + 1);
+	i = 0;
+	while ((str[i] != '\0') && space_check(str[i]) == 0))
+	{
+		arr[i] = str[i];
+		i++;
+	}
+	arr[i] = '\0';
+	return (arr);
+}
+
+
 char	**ft_split(char *str)
 {
 	int	i;
-	char	**arr;
-	*arr = malloc(sizeof(char *) * (count_words(str) + 1));
-	if (*arr == NULL)
+	char	**arrs;
+	*arrs = malloc(sizeof(char *) * (count_words(str) + 1));
+	if (*arrs == NULL)
 		return (NULL);
 	i = 0;
+	j = 0;
 	while (str[i] != '\0')
 	{
 		while (space_check(str[i]) == 1)
 			i++;
 		if (space_check(str[i]) == 0)
 		{
+			arrs[j] = ft_strcat(str);
+			j++;
+			while (space_check(str[i]) == 0)
+				i++;
+		}
+		i++;
+	}
+	arrs[j] = '\0';
+	return (arrs);
+}
+
+#include <stdio.h>
+
+int	main(int ac, char **av)
+{
+	char **arrs;
+	char *str = " Hello, The New\t  WOR\nLD  ! ";
+	
+	arrs = ft_split(str);
+	printf("%s\n", arrs[0]);
+
+	free(arrs);
+}
 			
 	 
 
