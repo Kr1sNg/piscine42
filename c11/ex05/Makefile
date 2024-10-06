@@ -3,41 +3,43 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tat-nguy <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: tat-nguy <tat-nguy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/09/23 12:06:09 by tat-nguy          #+#    #+#              #
-#    Updated: 2024/10/06 12:46:59 by tat-nguy         ###   ########.fr        #
+#    Created: 2024/10/06 11:52:34 by tat-nguy          #+#    #+#              #
+#    Updated: 2024/10/06 12:46:01 by tat-nguy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS_DIR = ./srcs
 INC_DIR = ./includes
-SRCS = $(SRCS_DIR)/ft_putchar.c $(SRCS_DIR)/ft_swap.c $(SRCS_DIR)/ft_putstr.c $(SRCS_DIR)/ft_strlen.c $(SRCS_DIR)/ft_strcmp.c
+SRCS = $(SRCS_DIR)/main.c $(SRCS_DIR)/ft_op.c $(SRCS_DIR)/tools.c
+INC = $(INC_DIR)/ft_op.h
 OBJS = $(SRCS:.c=.o)
-INC = $(INC_DIR)/ft.h
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-NAME = libft.a
-AR = ar -rc
-RANLIB = ranlib
+NAME = do-op
 
-all: $(NAME)
+#Rule to create the executable
+all : $(NAME)
 
 $(NAME): $(OBJS)
-	$(AR) $@ $^
-	$(RANLIB) $@
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
-$(OBJS): $(SRCS_DIR)/%.o: $(SRCS_DIR)/%.c $(INC)
-	$(CC) $(CFLAGS) -I $(INC_DIR) -o $@ $<
+#Rule to compile object files
+%.o: %.c $(INC)
+	$(CC) $(CFLAGS) -c $< -o $@
 
+#Clean object files
 clean:
 	rm -f $(OBJS)
 
+#Clean object files (by recall clean) and the executable
 fclean: clean
 	rm -f $(NAME)
 
+#Rebuild everything with 'fclean' everything and recall 'all'
 re: fclean all
 
 .PHONY: all clean fclean re
