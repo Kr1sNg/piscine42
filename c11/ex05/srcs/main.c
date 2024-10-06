@@ -6,14 +6,15 @@
 /*   By: tat-nguy <tat-nguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 20:26:43 by tat-nguy          #+#    #+#             */
-/*   Updated: 2024/10/06 12:33:14 by tat-nguy         ###   ########.fr       */
+/*   Updated: 2024/10/06 12:59:43 by tat-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-// init_functions is a function to assign function pointer to the array.
+
+/* init_functions is a function to assign function pointer to the array.*/
 
 #include "../includes/ft_op.h"
 
-void init_functions(void (**ft_doop)(int, int))
+void	init_functions(void (**ft_doop)(int, int))
 {
 	ft_doop[0] = ft_add;
 	ft_doop[1] = ft_subtract;
@@ -24,8 +25,8 @@ void init_functions(void (**ft_doop)(int, int))
 
 int	main(int argc, char *argv[])
 {
-	int c;
-	void (*ft_doop[5])(int, int);
+	int		c;
+	void	(*ft_doop[5])(int, int);
 
 	init_functions(ft_doop);
 	if (argc != 4)
@@ -48,4 +49,4 @@ int	main(int argc, char *argv[])
 	(*ft_doop[c])(ft_atoi(argv[1]), ft_atoi(argv[3]));
 	ft_putstr("\n");
 	return (0);
-}	
+}

@@ -6,7 +6,7 @@
 /*   By: tat-nguy <tat-nguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 19:44:48 by tat-nguy          #+#    #+#             */
-/*   Updated: 2024/10/06 12:33:35 by tat-nguy         ###   ########.fr       */
+/*   Updated: 2024/10/06 13:04:02 by tat-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_putstr(char *str)
 	int	i;
 
 	i = 0;
-	while(str[i] != '\0')
+	while (str[i] != '\0')
 	{
 		write(1, &str[i], 1);
 		i++;
@@ -34,7 +34,7 @@ int	ft_strcmp(char *s1, char *s2)
 	return (s1[i] - s2[i]);
 }
 
-int ft_atoi(char *str)
+int	ft_atoi(char *str)
 {
 	int		result;
 	int		i;
@@ -57,7 +57,7 @@ int ft_atoi(char *str)
 	return (result * sign);
 }
 
-void ft_putnbr(int nbr)
+void	ft_putnbr(int nbr)
 {
 	long	nb;
 	char	c;

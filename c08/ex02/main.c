@@ -6,14 +6,14 @@
 /*   By: tat-nguy <tat-nguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:51:16 by tat-nguy          #+#    #+#             */
-/*   Updated: 2024/10/01 14:51:19 by tat-nguy         ###   ########.fr       */
+/*   Updated: 2024/10/06 13:14:01 by tat-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "ft_abs.h"
 
-int	main (void)
+int	main(void)
 {
 	int		a = -5;
 	int 	b = -10;

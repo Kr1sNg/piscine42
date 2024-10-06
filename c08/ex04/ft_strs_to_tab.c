@@ -6,7 +6,7 @@
 /*   By: tat-nguy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 13:58:32 by tat-nguy          #+#    #+#             */
-/*   Updated: 2024/09/18 16:35:31 by tat-nguy         ###   ########.fr       */
+/*   Updated: 2024/10/06 13:12:21 by tat-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int	ft_strlen(char *str)
 {
 	int	i;
-	
+
 	i = 0;
 	while (str[i] != '\0')
 		i++;
@@ -48,11 +48,11 @@ char	*ft_strdup(char *src)
 	return (dest);
 }
 
-struct	s_stock_str *ft_strs_to_tab(int ac, char **av)
+struct	s_stock_str	*ft_strs_to_tab(int ac, char **av)
 {
 	t_stock_str	*tab;
-	int	i;	
-		
+	int			i;
+
 	i = 0;
 	tab = malloc(sizeof(t_stock_str) *(ac + 1));
 	if (!tab)
