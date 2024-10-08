@@ -6,7 +6,7 @@
 /*   By: tat-nguy <tat-nguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 16:24:42 by tat-nguy          #+#    #+#             */
-/*   Updated: 2024/10/07 18:41:08 by tat-nguy         ###   ########.fr       */
+/*   Updated: 2024/10/07 19:17:01 by tat-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /* Linked list: danhsach lienket:
@@ -24,8 +24,8 @@ t_list	*ft_create_elem(void *data)
 	new_elem = (t_list *)malloc(sizeof(t_list));
 	if (!new_elem)
 		return (NULL);
-	new_elem->data = data;
 	new_elem->next = NULL;
+	new_elem->data = data;
 	return (new_elem);
 }
 
