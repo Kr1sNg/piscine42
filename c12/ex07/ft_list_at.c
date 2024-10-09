@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_last.c                                     :+:      :+:    :+:   */
+/*   ft_list_at.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tat-nguy <tat-nguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 21:58:16 by tat-nguy          #+#    #+#             */
-/*   Updated: 2024/10/09 13:40:13 by tat-nguy         ###   ########.fr       */
+/*   Created: 2024/10/09 18:04:14 by tat-nguy          #+#    #+#             */
+/*   Updated: 2024/10/09 19:51:02 by tat-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*this function returns the last element of the list.
-*/
 
 #include "ft_list.h"
 
-t_list	*ft_list_last(t_list *begin_list)
+t_list	*ft_list_at(t_list *begin_list, unsigned int nbr)
 {
-	t_list	*element;
+	t_list			*current;
+	unsigned int	i;
 
-	element = begin_list;
-	if (element == NULL)
-		return (NULL);
-	while (element->next != NULL)
+	current = begin_list;
+	i = 0;
+	while (current != NULL && i < nbr)
 	{
-		element = element->next;
+		current = current->next;
+		i++;
 	}
-	return (element);
+	return (current);
 }
 
 /*
@@ -57,21 +56,31 @@ void    ft_list_clear(t_list *begin_list)
 int main(void)
 {
     t_list *list = NULL;
-    int value1 = 42;
-    int value2 = 24;
-    int value3 = 75;
+    int value0 = 42;
+    int value1 = 24;
+    int value2 = 75;
+	int	value3 = 99;
+	int value4 = 100;
+	int value5 = 800;
+	int value6 = 999;
 
+
+	ft_list_push_front(&list, &value0);
     ft_list_push_front(&list, &value1);
     ft_list_push_front(&list, &value2);
     ft_list_push_front(&list, &value3);
+	ft_list_push_front(&list, &value4);
+	ft_list_push_front(&list, &value5);
+	ft_list_push_front(&list, &value6);
 
-    t_list *last = ft_list_last(list);
-	if (last != NULL)
-		printf("last value: %i\n", *(int *)(last->data));
+    t_list *current = ft_list_at(list, 4);
+	if (current != NULL)
+	{
+		printf("value at 4: %i\n", *(int *)(current->data));
+	}
 	else
-		printf("The list is empty.\n");
-    
-	ft_list_clear(list);
+		printf("no element at index 4\n");
+    ft_list_clear(list);
 
     return (0);
 }*/

@@ -6,7 +6,7 @@
 /*   By: tat-nguy <tat-nguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 20:00:33 by tat-nguy          #+#    #+#             */
-/*   Updated: 2024/10/08 21:48:09 by tat-nguy         ###   ########.fr       */
+/*   Updated: 2024/10/09 13:39:36 by tat-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /* this function returns the number of elements in the list.
@@ -42,14 +42,14 @@ void    ft_list_push_front(t_list **begin_list, void *data)
     }
 }
 
-void	ft_list_clear(t_list **begin_list)
+void	ft_list_clear(t_list *begin_list)
 {
 	t_list	*temp;
 
-	while (*begin_list != NULL)
+	while (begin_list != NULL)
 	{
-		temp = *begin_list;
-		*begin_list = (*begin_list)->next;
+		temp = begin_list;
+		begin_list = begin_list->next;
 		free(temp);
 	}
 }
@@ -68,7 +68,7 @@ int main(void)
 
 	printf("size: %i\n", ft_list_size(list));
 
-    ft_list_clear(&list);
+    ft_list_clear(list);
 
     return (0);
 }*/
