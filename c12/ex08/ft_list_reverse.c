@@ -6,7 +6,7 @@
 /*   By: tat-nguy <tat-nguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 13:57:04 by tat-nguy          #+#    #+#             */
-/*   Updated: 2024/10/10 21:15:24 by tat-nguy         ###   ########.fr       */
+/*   Updated: 2024/10/11 17:20:11 by tat-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,26 +21,26 @@
 
 #include "ft_list.h"
 
-void    ft_list_reverse(t_list **begin_list)
+void	ft_list_reverse(t_list **begin_list)
 {
-    t_list  *prev;
-    t_list  *curr;
-    t_list  *next;
-    
-    prev = NULL;
-    curr = *begin_list;
-    next = NULL;
-    
-    while (curr != NULL)
-    {
-        next = curr->next;
-        curr->next = prev;
-        prev = curr;
-        curr = next;
-    }
-    *begin_list = prev;
+	t_list	*prev;
+	t_list	*curr;
+	t_list	*next;
+
+	prev = NULL;
+	curr = *begin_list;
+	next = NULL;
+	while (curr != NULL)
+	{
+		next = curr->next;
+		curr->next = prev;
+		prev = curr;
+		curr = next;
+	}
+	*begin_list = prev;
 }
 
+/*
 #include <stdio.h>
 void ft_print_list(t_list *elem)
 {
@@ -97,4 +97,4 @@ int main(void)
     
     ft_list_clear(head, free);
     return (0);
-}
+}*/
