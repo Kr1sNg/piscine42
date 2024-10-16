@@ -6,11 +6,12 @@
 /*   By: tat-nguy <tat-nguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 13:57:04 by tat-nguy          #+#    #+#             */
-/*   Updated: 2024/10/11 17:20:11 by tat-nguy         ###   ########.fr       */
+/*   Updated: 2024/10/15 08:46:49 by tat-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* this function reverses the order of a list's elements
+	Objective is change the pointer of curr->next from next to prev!!!
     1. Initialize 3 pointers prev as NULL, curr as begin and next as NULL;
     2. iterate through the list. Inside the loop:
         - store next node, next = curr->next
@@ -94,6 +95,7 @@ int main(void)
     ft_list_reverse(&head);
     printf("\nReversed Linked list:");
     ft_print_list(head);
+	printf("\n");
     
     ft_list_clear(head, free);
     return (0);

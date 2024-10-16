@@ -6,11 +6,10 @@
 /*   By: tat-nguy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 21:00:25 by tat-nguy          #+#    #+#             */
-/*   Updated: 2024/09/19 12:07:52 by tat-nguy         ###   ########.fr       */
+/*   Updated: 2024/10/16 22:15:53 by tat-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
 int	ft_find_next_prime(int nb)
 {
 	int	i;
@@ -29,9 +28,11 @@ int	ft_find_next_prime(int nb)
 	}
 	return (nb);
 }
+
 /*
+#include <stdio.h>
 int	main(void)
 {
-	int x = ft_find_next_prime(9);
+	int x = ft_find_next_prime(86981898);
 	printf("%i", x);
 }*/

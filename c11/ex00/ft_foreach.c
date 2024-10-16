@@ -6,7 +6,7 @@
 /*   By: tat-nguy <tat-nguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 12:12:44 by tat-nguy          #+#    #+#             */
-/*   Updated: 2024/10/03 15:36:06 by tat-nguy         ###   ########.fr       */
+/*   Updated: 2024/10/16 19:54:22 by tat-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	ft_foreach(int *tab, int length, void (*f)(int))
 	}
 }
 
+
+//(*f)(tab[i]) is the same with f(tab[i])
 /*#include <unistd.h>
 void	ft_putnbr(int nbr)
 {
