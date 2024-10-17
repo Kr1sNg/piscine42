@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_sort.c                                     :+:      :+:    :+:   */
+/*   ft_sorted_list_insert.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tat-nguy <tat-nguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/16 17:24:52 by tat-nguy          #+#    #+#             */
-/*   Updated: 2024/10/17 12:57:22 by tat-nguy         ###   ########.fr       */
+/*   Created: 2024/10/17 12:42:22 by tat-nguy          #+#    #+#             */
+/*   Updated: 2024/10/17 14:21:15 by tat-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* for sorting this list, we can easily swap the value inside each element
-	instead of swap totaly two elements.
-	*/
+/* this function will create new element and insert it into a sorted list
+	in ascending order.
+*/
 
 #include "ft_list.h"
+
+void	ft_list_push_front(t_list **begin, void *data)
+{
+	t_list	*new;
+
+	new = ft_create_elem(data);
+	if (new != NULL)
+	{
+		new->next = *begin;
+		*begin = new;
+	}
+}
 
 void	ft_list_sort(t_list **begin_list, int (*cmp)())
 {
@@ -43,22 +55,21 @@ void	ft_list_sort(t_list **begin_list, int (*cmp)())
 	}
 }
 
-/*
-void	ft_list_push_front(t_list **begin, void *data)
+void	ft_sorted_list_insert(t_list **begin_list, void *data, int (*cmp)())
 {
-	t_list	*new;
+	ft_list_push_front(begin_list, data);
+	ft_list_sort(begin_list, cmp);
+}
 
-	new = ft_create_elem(data);
-	if (new != NULL)
-	{
-		new->next = *begin;
-		*begin = new;
-	}
+/*
+int	ft_cmp_int(void *d1, void *d2)
+{
+	return (*(int *)d1 - *(int *)d2);
 }
 
 void	ft_list_clear(t_list *begin)
 {
-	t_list *temp;
+	t_list	*temp;
 
 	while (begin != NULL)
 	{
@@ -68,21 +79,13 @@ void	ft_list_clear(t_list *begin)
 	}
 }
 
-int	ft_cmp_int(void *a, void *b)
-{
-	return (*(int *)a - *(int *)b);
-}
-
 #include <stdio.h>
 void	ft_printf_list(t_list *begin)
 {
-	t_list	*curr;
-	
-	curr = begin;
-	while (curr != NULL)
+	while (begin != NULL)
 	{
-		printf("%i, ", *(int *)(curr->data));
-		curr = curr->next;
+		printf("%i, ", *(int *)(begin->data));
+		begin = begin->next;
 	}
 	printf("\n");
 }
@@ -90,17 +93,20 @@ void	ft_printf_list(t_list *begin)
 int	main(void)
 {
 	t_list *list = NULL;
-	int a = 42, b = 113, c = -17, d = 8, e = -1000, f = 0;
-	ft_list_push_front(&list, &f);
-	ft_list_push_front(&list, &e);
-	ft_list_push_front(&list, &d);
-	ft_list_push_front(&list, &c);
-	ft_list_push_front(&list, &b);
-	ft_list_push_front(&list, &a);
-	ft_printf_list(list);
+	int a = 42;//, b = 113, c = -17, d = 8, e = -1000, f = 0;
+	int	h = 9999;
 
-	ft_list_sort(&list, ft_cmp_int);
-	printf("New list:\n");
+    ft_list_push_front(&list, &f);
+    ft_list_push_front(&list, &e);
+    ft_list_push_front(&list, &d);
+    ft_list_push_front(&list, &c);
+    ft_list_push_front(&list, &b);
+    ft_list_push_front(&list, &a);
+	printf("Original: ");
+    ft_printf_list(list);
+	
+	ft_sorted_list_insert(&list, &h, ft_cmp_int);
+	printf("Insert Sorted: ");
 	ft_printf_list(list);
 
 	ft_list_clear(list);
