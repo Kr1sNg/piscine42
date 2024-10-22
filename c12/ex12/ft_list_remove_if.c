@@ -6,7 +6,7 @@
 /*   By: tat-nguy <tat-nguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 20:21:09 by tat-nguy          #+#    #+#             */
-/*   Updated: 2024/10/15 08:32:19 by tat-nguy         ###   ########.fr       */
+/*   Updated: 2024/10/22 19:44:28 by tat-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /* this function removes all elems whose data is equal with data_ref
